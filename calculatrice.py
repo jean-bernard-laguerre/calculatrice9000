@@ -63,8 +63,11 @@ def Operation(operateur):
             equation_ecran.set(equation_ecran.get() + f"(1/{entree_ecran.get()})")
             equation += f"(1/{entree_ecran.get()})"
         case "!":
-            equation_ecran.set(equation_ecran.get() + entree_ecran.get() + "!")
-            equation += str(Factoriel( int(entree_ecran.get()) ))
+            try:
+                equation += f"{Factoriel( int(entree_ecran.get()))}"
+                equation_ecran.set(equation_ecran.get() + entree_ecran.get() + "!")
+            except:
+                showerror('Erreur', 'Factoriel invalide')
         case "^":
             equation_ecran.set(equation_ecran.get() + entree_ecran.get() + "^")
             equation += entree_ecran.get() + "**"
